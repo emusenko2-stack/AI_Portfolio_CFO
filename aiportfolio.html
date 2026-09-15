@@ -1,1 +1,733 @@
-# AI_Portfolio_CFO
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Портфолио AI-навыков финансового директора</title>
+
+    <style>
+        :root {
+            --bg-primary: #07111f;
+            --bg-secondary: #0d1b2d;
+            --card-bg: rgba(17, 34, 55, 0.72);
+            --text-primary: #f7f9fc;
+            --text-secondary: #aab8cb;
+            --accent-blue: #42a5ff;
+            --accent-violet: #8b5cf6;
+            --accent-cyan: #31d7c4;
+            --border-color: rgba(255, 255, 255, 0.11);
+            --shadow: 0 24px 70px rgba(0, 0, 0, 0.3);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            min-height: 100vh;
+            overflow-x: hidden;
+            color: var(--text-primary);
+            background:
+                radial-gradient(
+                    circle at 10% 15%,
+                    rgba(66, 165, 255, 0.13),
+                    transparent 32%
+                ),
+                radial-gradient(
+                    circle at 90% 20%,
+                    rgba(139, 92, 246, 0.16),
+                    transparent 34%
+                ),
+                radial-gradient(
+                    circle at 50% 100%,
+                    rgba(49, 215, 196, 0.09),
+                    transparent 38%
+                ),
+                var(--bg-primary);
+            font-family:
+                Inter, -apple-system, BlinkMacSystemFont, "Segoe UI",
+                Arial, sans-serif;
+            line-height: 1.6;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            opacity: 0.28;
+            pointer-events: none;
+            background-image:
+                linear-gradient(
+                    rgba(255, 255, 255, 0.025) 1px,
+                    transparent 1px
+                ),
+                linear-gradient(
+                    90deg,
+                    rgba(255, 255, 255, 0.025) 1px,
+                    transparent 1px
+                );
+            background-size: 48px 48px;
+        }
+
+        .container {
+            width: min(1160px, calc(100% - 40px));
+            margin: 0 auto;
+        }
+
+        /* Главный экран */
+
+        .hero {
+            position: relative;
+            display: flex;
+            align-items: center;
+            min-height: 88vh;
+            padding: 90px 0 70px;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 24px;
+            padding: 9px 16px;
+            color: #d7e9ff;
+            background: rgba(66, 165, 255, 0.09);
+            border: 1px solid rgba(66, 165, 255, 0.25);
+            border-radius: 999px;
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            backdrop-filter: blur(14px);
+        }
+
+        .eyebrow::before {
+            content: "";
+            width: 8px;
+            height: 8px;
+            background: var(--accent-cyan);
+            border-radius: 50%;
+            box-shadow: 0 0 18px var(--accent-cyan);
+        }
+
+        h1 {
+            max-width: 1000px;
+            margin-bottom: 28px;
+            font-size: clamp(3rem, 7vw, 6.5rem);
+            font-weight: 850;
+            line-height: 0.98;
+            letter-spacing: -0.055em;
+        }
+
+        .gradient-title {
+            color: transparent;
+            background:
+                linear-gradient(
+                    105deg,
+                    #ffffff 5%,
+                    #83caff 37%,
+                    #ae83ff 68%,
+                    #5ce7d7 100%
+                );
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 12px 35px rgba(83, 164, 255, 0.18));
+        }
+
+        .hero-description {
+            max-width: 720px;
+            color: var(--text-secondary);
+            font-size: clamp(1.05rem, 2vw, 1.28rem);
+        }
+
+        .hero-description strong {
+            color: #ffffff;
+            font-weight: 650;
+        }
+
+        .hero-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin-top: 34px;
+        }
+
+        .meta-item {
+            padding: 10px 15px;
+            color: #cfe5ff;
+            background: rgba(255, 255, 255, 0.045);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            font-size: 0.9rem;
+        }
+
+        .hero-glow {
+            position: absolute;
+            top: 12%;
+            right: -140px;
+            width: 520px;
+            height: 520px;
+            opacity: 0.33;
+            border-radius: 50%;
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--accent-blue),
+                    var(--accent-violet)
+                );
+            filter: blur(120px);
+            pointer-events: none;
+        }
+
+        /* Секции */
+
+        section {
+            padding: 72px 0;
+        }
+
+        .section-heading {
+            display: grid;
+            grid-template-columns: 100px 1fr;
+            gap: 26px;
+            align-items: start;
+            margin-bottom: 38px;
+        }
+
+        .section-number {
+            color: var(--accent-cyan);
+            font-size: 0.84rem;
+            font-weight: 800;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+        }
+
+        .section-title {
+            margin-bottom: 12px;
+            font-size: clamp(2rem, 4vw, 3.3rem);
+            line-height: 1.1;
+            letter-spacing: -0.035em;
+        }
+
+        .section-subtitle {
+            max-width: 680px;
+            color: var(--text-secondary);
+            font-size: 1.02rem;
+        }
+
+        /* Карточки навыков */
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 20px;
+        }
+
+        .skill-card {
+            position: relative;
+            min-height: 245px;
+            overflow: hidden;
+            padding: 30px;
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255, 255, 255, 0.075),
+                    rgba(255, 255, 255, 0.025)
+                );
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            box-shadow: 0 14px 42px rgba(0, 0, 0, 0.16);
+            backdrop-filter: blur(18px);
+            transition:
+                transform 0.35s ease,
+                border-color 0.35s ease,
+                box-shadow 0.35s ease;
+        }
+
+        .skill-card::after {
+            content: "";
+            position: absolute;
+            right: -70px;
+            bottom: -90px;
+            width: 190px;
+            height: 190px;
+            opacity: 0;
+            background: var(--card-accent, var(--accent-blue));
+            border-radius: 50%;
+            filter: blur(70px);
+            transition: opacity 0.35s ease;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-9px);
+            border-color: rgba(98, 183, 255, 0.45);
+            box-shadow: 0 25px 65px rgba(0, 0, 0, 0.28);
+        }
+
+        .skill-card:hover::after {
+            opacity: 0.3;
+        }
+
+        .skill-card:nth-child(2) {
+            --card-accent: var(--accent-violet);
+        }
+
+        .skill-card:nth-child(3) {
+            --card-accent: var(--accent-cyan);
+        }
+
+        .skill-card:nth-child(4) {
+            --card-accent: #ffb85c;
+        }
+
+        .skill-icon {
+            display: grid;
+            place-items: center;
+            width: 48px;
+            height: 48px;
+            margin-bottom: 25px;
+            color: var(--accent-cyan);
+            background: rgba(49, 215, 196, 0.1);
+            border: 1px solid rgba(49, 215, 196, 0.24);
+            border-radius: 15px;
+            font-size: 1.2rem;
+            font-weight: 800;
+        }
+
+        .skill-card h3 {
+            position: relative;
+            z-index: 1;
+            margin-bottom: 12px;
+            font-size: 1.25rem;
+            line-height: 1.3;
+        }
+
+        .skill-card p {
+            position: relative;
+            z-index: 1;
+            color: var(--text-secondary);
+        }
+
+        /* Кейс */
+
+        .case-box {
+            position: relative;
+            display: grid;
+            grid-template-columns: 180px 1fr;
+            gap: 38px;
+            overflow: hidden;
+            padding: 42px;
+            background:
+                linear-gradient(
+                    120deg,
+                    rgba(66, 165, 255, 0.13),
+                    rgba(139, 92, 246, 0.11),
+                    rgba(49, 215, 196, 0.08)
+                );
+            border: 1px solid rgba(111, 184, 255, 0.27);
+            border-radius: 28px;
+            box-shadow: var(--shadow);
+        }
+
+        .case-box::before {
+            content: "";
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 280px;
+            height: 280px;
+            opacity: 0.22;
+            background: var(--accent-violet);
+            border-radius: 50%;
+            filter: blur(85px);
+        }
+
+        .case-label {
+            position: relative;
+            z-index: 1;
+            color: var(--accent-cyan);
+            font-size: 0.83rem;
+            font-weight: 800;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+
+        .case-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .case-content h3 {
+            margin-bottom: 15px;
+            font-size: clamp(1.55rem, 3vw, 2.25rem);
+            line-height: 1.2;
+            letter-spacing: -0.025em;
+        }
+
+        .case-content p {
+            max-width: 760px;
+            color: #c5d3e5;
+            font-size: 1.05rem;
+        }
+
+        .case-accent {
+            color: #ffffff;
+            font-weight: 700;
+        }
+
+        /* Инструменты и направления */
+
+        .tools-panel {
+            padding: 36px;
+            background: rgba(255, 255, 255, 0.035);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+        }
+
+        .tools-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .tool-tag {
+            position: relative;
+            overflow: hidden;
+            padding: 11px 17px;
+            color: #dbeaff;
+            background: rgba(66, 165, 255, 0.08);
+            border: 1px solid rgba(66, 165, 255, 0.2);
+            border-radius: 999px;
+            font-size: 0.9rem;
+            font-weight: 650;
+            transition:
+                transform 0.25s ease,
+                color 0.25s ease,
+                background 0.25s ease,
+                border-color 0.25s ease;
+        }
+
+        .tool-tag:hover {
+            color: #07111f;
+            background: var(--accent-cyan);
+            border-color: var(--accent-cyan);
+            transform: translateY(-3px);
+        }
+
+        footer {
+            padding: 42px 0;
+            color: #74869e;
+            border-top: 1px solid var(--border-color);
+            font-size: 0.88rem;
+            text-align: center;
+        }
+
+        /* Анимация появления */
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(25px);
+            transition:
+                opacity 0.7s ease,
+                transform 0.7s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Адаптация */
+
+        @media (max-width: 780px) {
+            .container {
+                width: min(100% - 28px, 1160px);
+            }
+
+            .hero {
+                min-height: auto;
+                padding: 80px 0 45px;
+            }
+
+            h1 {
+                font-size: clamp(2.8rem, 14vw, 4.6rem);
+            }
+
+            section {
+                padding: 50px 0;
+            }
+
+            .section-heading {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .skill-card {
+                min-height: auto;
+                padding: 25px;
+            }
+
+            .case-box {
+                grid-template-columns: 1fr;
+                gap: 16px;
+                padding: 28px;
+            }
+
+            .tools-panel {
+                padding: 25px;
+            }
+        }
+
+        @media (max-width: 420px) {
+            .eyebrow {
+                font-size: 0.68rem;
+                letter-spacing: 0.08em;
+            }
+
+            .hero-meta {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .meta-item {
+                text-align: center;
+            }
+
+            .tool-tag {
+                width: 100%;
+                text-align: center;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                scroll-behavior: auto !important;
+                transition-duration: 0.01ms !important;
+                animation-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="eyebrow">
+                    Finance · Technology · AI
+                </div>
+
+                <h1 class="gradient-title">
+                    Портфолио<br>
+                    AI-навыков CFO
+                </h1>
+
+                <p class="hero-description">
+                    Практическое применение искусственного интеллекта
+                    в работе <strong>финансового директора</strong>:
+                    от автоматизации рутинных процессов до поддержки
+                    управленческих решений.
+                </p>
+
+                <div class="hero-meta">
+                    <span class="meta-item">Финансовое управление</span>
+                    <span class="meta-item">Автоматизация процессов</span>
+                    <span class="meta-item">AI-инструменты</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="hero-glow"></div>
+    </header>
+
+    <main>
+        <section>
+            <div class="container">
+                <div class="section-heading reveal">
+                    <div class="section-number">Раздел 01</div>
+
+                    <div>
+                        <h2 class="section-title">
+                            Ключевые AI-навыки
+                        </h2>
+
+                        <p class="section-subtitle">
+                            Использование нейросетей для повышения личной
+                            эффективности и оптимизации работы департамента
+                            экономики и финансов.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="skills-grid">
+                    <article class="skill-card reveal">
+                        <div class="skill-icon">AI</div>
+
+                        <h3>Понимание технологий</h3>
+
+                        <p>
+                            Различаю искусственный интеллект, нейросети
+                            и ChatGPT. Умею объяснять различия простым
+                            и понятным языком.
+                        </p>
+                    </article>
+
+                    <article class="skill-card reveal">
+                        <div class="skill-icon">01</div>
+
+                        <h3>Быстрый поиск информации</h3>
+
+                        <p>
+                            Использую чат-боты для предварительного поиска,
+                            систематизации и обработки информации, сокращая
+                            время на выполнение рутинных задач.
+                        </p>
+                    </article>
+
+                    <article class="skill-card reveal">
+                        <div class="skill-icon">₽</div>
+
+                        <h3>Финансовое планирование</h3>
+
+                        <p>
+                            Применяю нейросети в бюджетировании,
+                            подготовке управленческой отчётности
+                            и анализе финансовых данных.
+                        </p>
+                    </article>
+
+                    <article class="skill-card reveal">
+                        <div class="skill-icon">↗</div>
+
+                        <h3>Управление и контроль</h3>
+
+                        <p>
+                            Использую AI-инструменты при работе
+                            с денежными потоками и задачами
+                            антикризисного управления.
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <div class="section-heading reveal">
+                    <div class="section-number">Кейс 01</div>
+
+                    <div>
+                        <h2 class="section-title">
+                            Практическое применение
+                        </h2>
+
+                        <p class="section-subtitle">
+                            Пример внедрения искусственного интеллекта
+                            в ежедневную работу финансового подразделения.
+                        </p>
+                    </div>
+                </div>
+
+                <article class="case-box reveal">
+                    <div class="case-label">
+                        Результат
+                    </div>
+
+                    <div class="case-content">
+                        <h3>
+                            Оптимизация процесса бюджетирования
+                        </h3>
+
+                        <p>
+                            <span class="case-accent">
+                                Оптимизировала рутинные задачи
+                                в департаменте экономики и финансов,
+                            </span>
+                            автоматизировав отдельные операции процесса
+                            бюджетирования с помощью ChatGPT.
+                        </p>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <div class="section-heading reveal">
+                    <div class="section-number">Фокус</div>
+
+                    <div>
+                        <h2 class="section-title">
+                            Инструменты и направления
+                        </h2>
+
+                        <p class="section-subtitle">
+                            Области применения AI в работе финансового
+                            директора.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="tools-panel reveal">
+                    <div class="tools-grid">
+                        <span class="tool-tag">ChatGPT</span>
+                        <span class="tool-tag">AI-ассистенты</span>
+                        <span class="tool-tag">Бюджетирование</span>
+                        <span class="tool-tag">Управленческая отчётность</span>
+                        <span class="tool-tag">Анализ данных</span>
+                        <span class="tool-tag">Денежные потоки</span>
+                        <span class="tool-tag">Финансовое планирование</span>
+                        <span class="tool-tag">Антикризисное управление</span>
+                        <span class="tool-tag">Автоматизация процессов</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            Портфолио AI-навыков финансового директора
+        </div>
+    </footer>
+
+    <script>
+        const elements = document.querySelectorAll(".reveal");
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("visible");
+                        observer.unobserve(entry.target);
+                    }
+                });
+            },
+            {
+                threshold: 0.12
+            }
+        );
+
+        elements.forEach((element) => observer.observe(element));
+    </script>
+</body>
+</html>
